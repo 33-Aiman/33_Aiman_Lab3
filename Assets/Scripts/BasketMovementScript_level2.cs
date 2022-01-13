@@ -13,6 +13,10 @@ public class BasketMovementScript_level2 : MonoBehaviour
 
     public bool timeinmain = true;
     public bool firstgame = true;
+
+    public AudioClip pickupSoundHealthy;
+    public AudioClip pickupSoundUnhealthy;
+    public AudioSource audio;
     // float timeInt;
     float time = 30;
 
@@ -23,7 +27,7 @@ public class BasketMovementScript_level2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GetComponent<BoxCollider>().isTrigger = false;
     }
 
     // Update is called once per frame
@@ -51,8 +55,16 @@ public class BasketMovementScript_level2 : MonoBehaviour
             {
                 if (itemsCollected == 80)
                 {
-                    SceneManager.LoadScene("GameWinScene");
+                    ChangePos();
+                    StartCoroutine(WaitForSceneLoadWin());
                 }
+
+               
+            }
+            else
+            {
+                ChangePos();
+                StartCoroutine(WaitForSceneLoadLose());
             }
 
         }
@@ -67,16 +79,17 @@ public class BasketMovementScript_level2 : MonoBehaviour
         {
             case "Unhealthy":
 
+                audio.PlayOneShot(pickupSoundUnhealthy);
                 Destroy(other.gameObject);
-                SceneManager.LoadScene("GameLoseScene");
-
-
+                ChangePos();
+                StartCoroutine(WaitForSceneLoadLose());
+               
                 break;
             case "Healthy":
 
                 itemsCollected += 10;
                 Score.text = "Score:  " + itemsCollected.ToString();
-
+                audio.PlayOneShot(pickupSoundHealthy);
                 Destroy(other.gameObject);
                 break;
         }
@@ -84,6 +97,24 @@ public class BasketMovementScript_level2 : MonoBehaviour
 
 
         //change from if-else to switch
+
+    }
+
+    private IEnumerator WaitForSceneLoadWin()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("GameWinScene");
+    }
+
+    private IEnumerator WaitForSceneLoadLose()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("GameLoseScene");
+    }
+
+    private void ChangePos()
+    {
+        GetComponent<BoxCollider>().isTrigger = true;
 
     }
 
