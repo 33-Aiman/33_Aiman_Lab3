@@ -13,8 +13,8 @@ public class BasketMovementScript : MonoBehaviour
    
     public bool timeinmain = true;
     public bool firstgame = true;
-    float timeInt;
-    float time;
+   // float timeInt;
+    float time = 100;
 
     public Text Score;
 
@@ -23,7 +23,7 @@ public class BasketMovementScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -39,18 +39,21 @@ public class BasketMovementScript : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y,0.1f, -7f);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
 
-        if (itemsCollected >= 10)
-        {
-
-
-
-        }
+     
 
         if (timeinmain == true)
         {
-            time += Time.deltaTime;
-            timeInt = Mathf.FloorToInt(time % 60);
-            TimeScoreText.text = "Time: " + timeInt.ToString();
+            time -= Time.deltaTime;
+            //timeInt = Mathf.FloorToInt(time % 60);
+            TimeScoreText.text = "Time: " + time.ToString();
+
+            if(time >= 0)
+            {
+                if(itemsCollected == 80)
+                {
+                    SceneManager.LoadScene("GameWinScene");
+                }
+            }
 
         }
 
@@ -66,14 +69,14 @@ public class BasketMovementScript : MonoBehaviour
               
                 Destroy(other.gameObject);
                 SceneManager.LoadScene("GameLoseScene");
-                Debug.Log("Unhealthy bwahhh");
+                
                
                 break;
             case "Healthy":
                 
                  itemsCollected += 10;
                 Score.text = "Score:  " + itemsCollected.ToString();
-                Debug.Log("Healthy detected!!!");
+               
                 Destroy(other.gameObject);
                 break;
         }
