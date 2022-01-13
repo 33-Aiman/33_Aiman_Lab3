@@ -14,7 +14,7 @@ public class BasketMovementScript_level2 : MonoBehaviour
     public bool timeinmain = true;
     public bool firstgame = true;
     // float timeInt;
-    float time = 100;
+    float time = 40;
 
     public Text Score;
 

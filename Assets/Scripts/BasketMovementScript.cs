@@ -8,13 +8,9 @@ public class BasketMovementScript : MonoBehaviour
 {
     public float speed;
 
-    //Text and time
-    public Text TimeScoreText;
    
-    public bool timeinmain = true;
-    public bool firstgame = true;
    // float timeInt;
-    float time = 100;
+    
 
     public Text Score;
 
@@ -39,22 +35,11 @@ public class BasketMovementScript : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y,0.1f, -7f);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
 
-     
 
-        if (timeinmain == true)
+
+        if (itemsCollected == 80)
         {
-            time -= Time.deltaTime;
-            //timeInt = Mathf.FloorToInt(time % 60);
-            TimeScoreText.text = "Time: " + time.ToString();
-
-            if(time >= 0)
-            {
-                if(itemsCollected == 80)
-                {
-                    SceneManager.LoadScene("GameWinScene");
-                }
-            }
-
+            SceneManager.LoadScene("GamePlay_Level2");
         }
 
     }
