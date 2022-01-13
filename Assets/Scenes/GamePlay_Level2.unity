@@ -368,6 +368,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8948208555491486334, guid: 0b029d2c24f6e4ec4b66d9298f65a3ea,
+        type: 3}
+      propertyPath: SpawnSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 824fa5908f5490d409c0781664c10b4f, type: 3}
+    - target: {fileID: 8948208555491486334, guid: 0b029d2c24f6e4ec4b66d9298f65a3ea,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 30284117}
+    - target: {fileID: 8948208555491486334, guid: 0b029d2c24f6e4ec4b66d9298f65a3ea,
+        type: 3}
+      propertyPath: spawnee.Array.data[1]
+      value: 
+      objectReference: {fileID: 4017666735278695077, guid: f40d0cb3c3b16f348af21f0a95134e3f,
+        type: 3}
+    - target: {fileID: 8948208555491486334, guid: 0b029d2c24f6e4ec4b66d9298f65a3ea,
+        type: 3}
+      propertyPath: spawnee.Array.data[0]
+      value: 
+      objectReference: {fileID: 6435644830576966087, guid: e898f68a7c5809b4c8e1ecef36814474,
+        type: 3}
+    - target: {fileID: 8948208555491486334, guid: 0b029d2c24f6e4ec4b66d9298f65a3ea,
+        type: 3}
+      propertyPath: spawnee.Array.data[2]
+      value: 
+      objectReference: {fileID: 7289304840690337601, guid: b932fcb62a364e7498ebb09483ef6896,
+        type: 3}
+    - target: {fileID: 8948208555491486334, guid: 0b029d2c24f6e4ec4b66d9298f65a3ea,
+        type: 3}
+      propertyPath: spawnee.Array.data[3]
+      value: 
+      objectReference: {fileID: 3691523634527352635, guid: f0f3240177a0ae0429568242bfcfd20e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b029d2c24f6e4ec4b66d9298f65a3ea, type: 3}
 --- !u!1 &101846263

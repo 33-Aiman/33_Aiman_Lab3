@@ -9,9 +9,10 @@ public class Spawner : MonoBehaviour
     private float spawndelay=1;
     private int randomInt;
     float positionx;
-   
+    public AudioClip SpawnSound;
+    public AudioSource audio;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,8 @@ public class Spawner : MonoBehaviour
         positionx = Random.Range(8f,-8f);
         this.transform.position = new Vector3(positionx,transform.position.y , transform.position.z);
         Instantiate(spawnee[randomInt], transform.position, transform.rotation);
-   
+        audio.PlayOneShot(SpawnSound);
+
 
     }
 }
