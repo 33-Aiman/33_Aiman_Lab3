@@ -15,29 +15,33 @@ public class BasketMovementScript : MonoBehaviour
 
     public int itemsCollected;
 
- 
+    void start()
+    {
+        GetComponent<BoxCollider>().isTrigger = false;
+    }
     void Update()
     {
 
-      float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxis("Horizontal");
 
-      transform.position = transform.position + new Vector3(horizontalInput * speed * Time.deltaTime, 0, 0);
+        transform.position = transform.position + new Vector3(horizontalInput * speed * Time.deltaTime, 0, 0);
 
         var pos = Camera.main.WorldToViewportPoint(transform.position);
         pos.x = Mathf.Clamp(pos.x, 0.1f, 0.93f);
-        pos.y = Mathf.Clamp(pos.y,0.1f, -7f);
+        pos.y = Mathf.Clamp(pos.y, 0.1f, -7f);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
 
 
 
         if (itemsCollected == 80)
         {
+            ChangePos();
             StartCoroutine(WaitForSceneLoadWin());
         }
 
 
-       
-        
+
+
 
     }
 
@@ -50,17 +54,19 @@ public class BasketMovementScript : MonoBehaviour
             case "Unhealthy":
                 audio.PlayOneShot(pickupSoundUnhealthy);
                 Destroy(other.gameObject);
+
+                ChangePos();
                 StartCoroutine(WaitForSceneLoadLose());
 
                 break;
             case "Healthy":
-                
-                 itemsCollected += 10;
+
+                itemsCollected += 10;
                 Score.text = "Score:  " + itemsCollected.ToString();
                 audio.PlayOneShot(pickupSoundHealthy);
                 Destroy(other.gameObject);
                 break;
-              
+
         }
 
 
@@ -78,6 +84,12 @@ public class BasketMovementScript : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene("GameLoseScene");
+    }
+
+    private void ChangePos()
+    {
+        GetComponent<BoxCollider>().isTrigger = true;
+
     }
 
 

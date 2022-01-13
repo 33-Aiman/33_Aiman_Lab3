@@ -314,7 +314,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 27cd2fc0de3d2d94eb491aac4cf5fdaf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d6e39df31da530447a53c2788197a38a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -555,6 +555,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   Score: {fileID: 145141312}
+  pickupSoundHealthy: {fileID: 8300000, guid: 82ab85dc4e7d4a94d9a8598e8b903a2f, type: 3}
+  pickupSoundUnhealthy: {fileID: 8300000, guid: 27cd2fc0de3d2d94eb491aac4cf5fdaf,
+    type: 3}
+  audio: {fileID: 519420030}
   itemsCollected: 0
 --- !u!65 &749641440
 BoxCollider:
