@@ -683,6 +683,10 @@ MonoBehaviour:
   TimeScoreText: {fileID: 371223565}
   timeinmain: 1
   firstgame: 1
+  pickupSoundHealthy: {fileID: 8300000, guid: 82ab85dc4e7d4a94d9a8598e8b903a2f, type: 3}
+  pickupSoundUnhealthy: {fileID: 8300000, guid: 27cd2fc0de3d2d94eb491aac4cf5fdaf,
+    type: 3}
+  audio: {fileID: 30284117}
   Score: {fileID: 740598071}
   itemsCollected: 0
 --- !u!212 &784065256
