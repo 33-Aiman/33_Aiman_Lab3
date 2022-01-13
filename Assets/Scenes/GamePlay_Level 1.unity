@@ -438,8 +438,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749641436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.42, y: -3.95, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -0.42, y: -4.163, z: 0}
+  m_LocalScale: {x: 0.41, y: 0.41, z: 0.82}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf1f9f26821f4be59f380600ae4018d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   Score: {fileID: 145141312}
   itemsCollected: 0
 --- !u!65 &749641440
