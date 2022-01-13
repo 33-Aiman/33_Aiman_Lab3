@@ -68,12 +68,15 @@ public class BasketMovementScript : MonoBehaviour
                 //SceneManager.LoadScene("GameLoseScene");
                 break;
             case "Healthy":
-                Destroy(other.gameObject);
-                itemsCollected++;
+                
+                 itemsCollected += 10;
                 Score.text = "Score:  " + itemsCollected.ToString();
                 Debug.Log("Healthy detected!!!");
+                Destroy(other.gameObject);
                 break;
         }
+
+   
 
         //change from if-else to switch
 
