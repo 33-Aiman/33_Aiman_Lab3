@@ -63,9 +63,11 @@ public class BasketMovementScript : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Unhealthy":
+              
                 Destroy(other.gameObject);
-                Debug.Log("Unhealthy bwahhh");
                 SceneManager.LoadScene("GameLoseScene");
+                Debug.Log("Unhealthy bwahhh");
+               
                 break;
             case "Healthy":
                 
