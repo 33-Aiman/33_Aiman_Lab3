@@ -7,22 +7,15 @@ using UnityEngine.SceneManagement;
 public class BasketMovementScript : MonoBehaviour
 {
     public float speed;
-
-   
-   // float timeInt;
-    
-
     public Text Score;
+
+    public AudioClip pickupSoundHealthy;
+    public AudioClip pickupSoundUnhealthy;
+    public AudioSource audio;
 
     public int itemsCollected;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
+ 
     void Update()
     {
 
@@ -39,8 +32,12 @@ public class BasketMovementScript : MonoBehaviour
 
         if (itemsCollected == 80)
         {
-            SceneManager.LoadScene("GamePlay_Level2");
+            StartCoroutine(WaitForSceneLoadWin());
         }
+
+
+       
+        
 
     }
 
@@ -51,26 +48,38 @@ public class BasketMovementScript : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Unhealthy":
-              
+                audio.PlayOneShot(pickupSoundUnhealthy);
                 Destroy(other.gameObject);
-                SceneManager.LoadScene("GameLoseScene");
-                
-               
+                StartCoroutine(WaitForSceneLoadLose());
+
                 break;
             case "Healthy":
                 
                  itemsCollected += 10;
                 Score.text = "Score:  " + itemsCollected.ToString();
-               
+                audio.PlayOneShot(pickupSoundHealthy);
                 Destroy(other.gameObject);
                 break;
+              
         }
 
-   
 
         //change from if-else to switch
 
     }
+
+    private IEnumerator WaitForSceneLoadWin()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("GamePLay_Level2");
+    }
+
+    private IEnumerator WaitForSceneLoadLose()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("GameLoseScene");
+    }
+
 
 
 
