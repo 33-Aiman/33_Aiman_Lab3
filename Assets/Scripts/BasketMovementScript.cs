@@ -1,11 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BasketMovementScript : MonoBehaviour
 {
     public float speed;
-   
+
+    //Text and time
+    public Text TimeScoreText;
+    public Text HighScoreText;
+    public bool timeinmain = true;
+    public bool firstgame = true;
+    float timeInt;
+    float time;
+
     // Start is called before the first frame update
     void Start()
     {
