@@ -65,7 +65,7 @@ public class BasketMovementScript : MonoBehaviour
             case "Unhealthy":
                 Destroy(other.gameObject);
                 Debug.Log("Unhealthy bwahhh");
-                //SceneManager.LoadScene("GameLoseScene");
+                SceneManager.LoadScene("GameLoseScene");
                 break;
             case "Healthy":
                 
